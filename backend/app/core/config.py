@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     host: str = Field(default="0.0.0.0", alias="HOST")
     port: int = Field(default=8000, alias="PORT")
 
-    cors_origins: list[str] = Field(
+    cors_origins: str | list[str] = Field(
         default_factory=lambda: ["http://localhost:3000", "http://localhost:5173"],
         alias="CORS_ORIGINS",
     )
