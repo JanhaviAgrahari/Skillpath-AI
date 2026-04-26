@@ -4,6 +4,30 @@ An agentic AI application that assesses a candidate's skill proficiency against 
 
 ## Architecture
 
+![Project Architecture](./Project%20Architecture%20%28SkillPath%20AI%29.png)
+
+### System Flow
+```mermaid
+graph TD
+    subgraph Frontend [Frontend - React]
+        UI[Landing / Workspace / Analysis]
+    end
+
+    subgraph Backend [Backend - FastAPI]
+        Router[API Endpoints]
+        S_LLM[Gemini 2.5 Agent]
+        Store[(In-Memory Session Store)]
+    end
+
+    UI -->|1. Resume & JD| Router
+    Router -->|2. Analysis| S_LLM
+    UI -->|3. Interview Turn| Router
+    Router <-->|4. Reasoning| S_LLM
+    Router -->|5. Save State| Store
+    Store -->|6. Generate Plan| UI
+```
+
+### Folder Structure
 ```
 deccan_ai/
 ├── backend/          # FastAPI + Python (REST API, Gemini LLM integration)
@@ -32,6 +56,19 @@ deccan_ai/
 - **Adaptive Follow-ups** — The AI probes deeper on shallow answers and moves on when confident
 - **Learning Roadmap** — Auto-generated week-by-week plan prioritizing the most critical gaps
 - **Assessment Report** — Exportable summary with per-skill scores and proficiency levels
+
+## Scoring Logic
+
+The platform uses a sophisticated **Agentic Scoring** model rather than simple keyword matching:
+
+1. **Semantic Analysis**: The AI evaluates answers based on technical accuracy, depth of reasoning, and practical application.
+2. **0-10 Scale**: Every response is scored. A score < 6.5 triggers a "Follow-up" turn where the AI attempts to help the user reveal their knowledge through a simpler or more specific question.
+3. **Proficiency Mapping**:
+    - **0-2.5**: Beginner (Theoretical)
+    - **5.0-7.5**: Intermediate (Practical)
+    - **8.5+**: Advanced/Expert (Architectural)
+4. **Gap Criticality**: The learning plan is weighted by how critical a missing skill is for the target role, ensuring the most important gaps are closed first.
+
 
 ## Tech Stack
 
