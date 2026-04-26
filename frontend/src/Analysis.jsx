@@ -22,7 +22,7 @@ export function Analysis() {
           return;
         }
 
-        const res = await fetch(`http://localhost:8000/api/v1/sessions/${sessionId}/analysis/complete`);
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/v1/sessions/${sessionId}/analysis/complete`);
         const result = await res.json();
 
         if (result.success && result.data) {

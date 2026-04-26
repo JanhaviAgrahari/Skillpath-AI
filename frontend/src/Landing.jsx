@@ -30,7 +30,7 @@ export function Landing() {
 
     try {
       // 1. Create Session
-      const sessionRes = await fetch("http://localhost:8000/api/v1/sessions", {
+      const sessionRes = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/v1/sessions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -48,7 +48,7 @@ export function Landing() {
       const resumeFormData = new FormData();
       resumeFormData.append("resume_text", resumeText);
       
-      const resumeRes = await fetch(`http://localhost:8000/api/v1/sessions/${sessionId}/resume`, {
+      const resumeRes = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/v1/sessions/${sessionId}/resume`, {
         method: "POST",
         body: resumeFormData,
       });
@@ -56,7 +56,7 @@ export function Landing() {
       if (!resumeData.success) throw new Error(resumeData.error_message || "Failed to submit resume");
 
       // 3. Submit JD
-      const jdRes = await fetch(`http://localhost:8000/api/v1/sessions/${sessionId}/job-description`, {
+      const jdRes = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/v1/sessions/${sessionId}/job-description`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -72,7 +72,7 @@ export function Landing() {
       localStorage.setItem("session_id", sessionId);
 
       // 4. Trigger analysis run
-      const analysisRes = await fetch(`http://localhost:8000/api/v1/sessions/${sessionId}/analysis/run`, {
+      const analysisRes = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/v1/sessions/${sessionId}/analysis/run`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({}),

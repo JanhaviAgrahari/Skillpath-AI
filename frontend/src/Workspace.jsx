@@ -41,7 +41,7 @@ export function Workspace() {
         // 1. Check if assessment is already active or we need to start it
         let assessData;
         try {
-          const fetchRes = await fetch(`http://localhost:8000/api/v1/sessions/${storedSessionId}/assessment`);
+          const fetchRes = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/v1/sessions/${storedSessionId}/assessment`);
           if (fetchRes.ok) {
             assessData = await fetchRes.json();
           } else {
@@ -57,7 +57,7 @@ export function Workspace() {
 
         if (!assessData.success || !assessData.data?.current_question) {
            // We need to get analysis to know what skills to assess
-           const analysisRes = await fetch(`http://localhost:8000/api/v1/sessions/${storedSessionId}/analysis/complete`);
+           const analysisRes = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/v1/sessions/${storedSessionId}/analysis/complete`);
            const analysisData = analysisRes.ok ? await analysisRes.json() : { success: false };
            
            let recommendedSkills = [];
@@ -86,7 +86,7 @@ export function Workspace() {
            }
            
            // Start assessment
-           const startRes = await fetch(`http://localhost:8000/api/v1/sessions/${storedSessionId}/assessment/start`, {
+           const startRes = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/v1/sessions/${storedSessionId}/assessment/start`, {
              method: "POST",
              headers: { "Content-Type": "application/json" },
              body: JSON.stringify({
@@ -104,7 +104,7 @@ export function Workspace() {
            currentActiveQuestion = assessData.data.current_question;
            if (assessData.data.progress) runningProgress = assessData.data.progress;
            // Fetch analysis to populate skills in the UI sidebar
-           const analysisRes = await fetch(`http://localhost:8000/api/v1/sessions/${storedSessionId}/analysis/complete`);
+           const analysisRes = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/v1/sessions/${storedSessionId}/analysis/complete`);
            const analysisData = analysisRes.ok ? await analysisRes.json() : { success: false };
            if (analysisData.success && analysisData.data) {
                const result = analysisData.data.result || {};
@@ -147,7 +147,7 @@ export function Workspace() {
     setIsTyping(true);
 
     try {
-      const res = await fetch(`http://localhost:8000/api/v1/sessions/${sessionId}/assessment/answer`, {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/v1/sessions/${sessionId}/assessment/answer`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -199,7 +199,7 @@ export function Workspace() {
         setAssessmentComplete(true);
         setIsTyping(false);
 
-        await fetch(`http://localhost:8000/api/v1/sessions/${sessionId}/assessment/complete`, {
+        await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/v1/sessions/${sessionId}/assessment/complete`, {
            method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({})
         });
 

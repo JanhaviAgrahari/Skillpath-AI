@@ -21,7 +21,7 @@ export function Summary() {
 
       if (forceGenerate) {
         setGenerating(true);
-        const genRes = await fetch(`http://localhost:8000/api/v1/sessions/${sessionId}/summary/generate`, {
+        const genRes = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/v1/sessions/${sessionId}/summary/generate`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({})
@@ -33,7 +33,7 @@ export function Summary() {
           setError(genData.error_message || "Failed to generate summary.");
         }
       } else {
-        const getRes = await fetch(`http://localhost:8000/api/v1/sessions/${sessionId}/summary`);
+        const getRes = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/v1/sessions/${sessionId}/summary`);
         const getData = await getRes.json();
         if (getData.success && getData.data) {
           setData(getData.data);
@@ -57,7 +57,7 @@ export function Summary() {
   const handleExport = async () => {
     try {
       const sessionId = localStorage.getItem("session_id");
-      const res = await fetch(`http://localhost:8000/api/v1/sessions/${sessionId}/export`);
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/v1/sessions/${sessionId}/export`);
       const exportData = await res.json();
       
       if (exportData.success) {

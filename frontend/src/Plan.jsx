@@ -28,7 +28,7 @@ export function Plan() {
 
       if (forceGenerate) {
         setGenerating(true);
-        const genRes = await fetch(`http://localhost:8000/api/v1/sessions/${sessionId}/learning-plan/generate`, {
+        const genRes = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/v1/sessions/${sessionId}/learning-plan/generate`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -47,7 +47,7 @@ export function Plan() {
         setLoading(false);
       } else {
         // Try GET first
-        const getRes = await fetch(`http://localhost:8000/api/v1/sessions/${sessionId}/learning-plan`);
+        const getRes = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}/api/v1/sessions/${sessionId}/learning-plan`);
         if (getRes.ok) {
           const getData = await getRes.json();
           if (getData.success && getData.data) {
