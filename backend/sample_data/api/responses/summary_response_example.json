@@ -1,0 +1,65 @@
+{
+  "success": true,
+  "message": {
+    "code": "ok",
+    "message": "success"
+  },
+  "data": {
+    "summary_id": "00000000-0000-0000-0000-000000000002",
+    "status": "generated",
+    "candidate_profile": {
+      "candidate_name": "Jane Hacker",
+      "target_role": "Backend Engineer",
+      "current_fit": "partial_fit",
+      "experience_level": "mid"
+    },
+    "role_summary": {
+      "target_role": "Backend Engineer",
+      "overall_match_score": 62.5,
+      "fit_label": "partial_fit",
+      "explanation": "Role match score: 62.5 (good_fit). Strong matches include Python and FastAPI. Partial coverage includes PostgreSQL. Primary gaps are Docker."
+    },
+    "highlights": {
+      "strongest_skills": [
+        "Python",
+        "FastAPI"
+      ],
+      "main_gaps": [
+        "Docker"
+      ]
+    },
+    "skill_analysis_summary": {
+      "strong_matches": [
+        "Python",
+        "FastAPI"
+      ],
+      "partial_matches": [
+        "PostgreSQL"
+      ],
+      "missing_skills": [
+        "Docker"
+      ],
+      "adjacent_skills": [
+        "CI/CD"
+      ],
+      "explanation": "Primary fit is backend-focused but deployment depth needs work."
+    },
+    "assessment_summary": {
+      "overall_average_score": 5.8,
+      "scores": [],
+      "explanation": "Assessment results show Docker still needs reinforcement."
+    },
+    "learning_plan_summary": {
+      "total_weeks": 4,
+      "total_hours": 20,
+      "top_milestones": [],
+      "explanation": "The roadmap starts with Docker and PostgreSQL before moving into CI/CD reinforcement."
+    },
+    "recommended_next_steps": [
+      "Prioritize closing the top gap in Docker first.",
+      "Lead with Python in interviews and project walkthroughs."
+    ],
+    "export_ready": true
+  },
+  "timestamp": "2026-04-26T10:10:00Z"
+}

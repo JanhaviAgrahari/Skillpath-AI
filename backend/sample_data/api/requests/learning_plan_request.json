@@ -1,0 +1,10 @@
+{
+  "weeks": 4,
+  "hours_per_week": 5,
+  "focus_skills": [
+    "Docker",
+    "PostgreSQL"
+  ],
+  "preferred_learning_style": "project_based",
+  "intensity": "standard"
+}

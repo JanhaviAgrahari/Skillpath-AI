@@ -1,0 +1,34 @@
+{
+  "success": true,
+  "message": {
+    "code": "ok",
+    "message": "success"
+  },
+  "data": {
+    "session_id": "00000000-0000-0000-0000-000000000001",
+    "analysis_status": "completed",
+    "parsing_ready": true,
+    "resume_snapshot": {
+      "full_name": "Jane Hacker"
+    },
+    "jd_snapshot": {
+      "title": "Backend Engineer"
+    },
+    "result": {
+      "resume_skills": [],
+      "jd_skills": [],
+      "strong_matches": [],
+      "partial_matches": [],
+      "missing_skills": [],
+      "adjacent_skills": [],
+      "assessment_recommendations": [
+        "Docker",
+        "PostgreSQL"
+      ],
+      "role_match_score": 62.5,
+      "role_match_label": "good_fit",
+      "explanation_summary": "Role match score: 62.5 (good_fit). Strong matches include Python and FastAPI. Partial coverage includes PostgreSQL. Primary gaps are Docker."
+    }
+  },
+  "timestamp": "2026-04-26T10:00:00Z"
+}

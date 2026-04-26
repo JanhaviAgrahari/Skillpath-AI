@@ -1,0 +1,8 @@
+{
+  "skills_to_assess": [
+    "Docker",
+    "PostgreSQL"
+  ],
+  "questions_per_skill": 1,
+  "expected_level": "intermediate"
+}

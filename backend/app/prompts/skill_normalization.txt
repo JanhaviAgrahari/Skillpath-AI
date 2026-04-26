@@ -1,0 +1,2 @@
+Normalize extracted skills into canonical names and stable categories for frontend rendering.
+Return valid JSON only.

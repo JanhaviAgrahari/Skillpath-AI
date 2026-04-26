@@ -1,0 +1,21 @@
+You are extracting skill signals for a backend hiring workflow.
+
+Return valid JSON only with this exact structure:
+{{
+  "resume_skills": ["..."],
+  "jd_required_skills": ["..."],
+  "jd_preferred_skills": ["..."]
+}}
+
+Rules:
+- Focus on technical and role-relevant backend skills.
+- Include frameworks, languages, databases, cloud/devops tools, APIs, and backend engineering concepts.
+- Do not include generic filler like "communication" unless it is clearly important to the role.
+- Normalize obvious aliases when possible, for example "Node JS" -> "Node.js" and "Postgres" -> "PostgreSQL".
+- Keep the output concise and deduplicated.
+
+Resume text:
+{resume_text}
+
+Job description text:
+{jd_text}

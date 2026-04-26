@@ -1,0 +1,9 @@
+Jane Hacker
+Backend engineer with 4 years experience building APIs and internal tools.
+jane.hacker@example.com
++91 9876543210
+Skills: Python, FastAPI, SQL, Git, REST APIs
+Education:
+B.Tech in Computer Science
+Projects:
+Built internal FastAPI services for analytics and workflow automation.

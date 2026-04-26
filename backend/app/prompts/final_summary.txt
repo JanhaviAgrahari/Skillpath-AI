@@ -1,0 +1,2 @@
+Generate the final candidate report and export-ready summary.
+Return valid JSON only.

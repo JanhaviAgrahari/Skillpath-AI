@@ -1,0 +1,10 @@
+{
+  "workflow_step": "intake",
+  "user_name": "Jane",
+  "target_role": "Backend Engineer",
+  "experience_level": "mid",
+  "resume_text": "Jane Hacker\nBackend engineer with 4 years experience building APIs and internal tools.\njane.hacker@example.com\n+91 9876543210\nSkills: Python, FastAPI, SQL, Git, REST APIs\nEducation:\nB.Tech in Computer Science\nProjects:\nBuilt internal FastAPI services for analytics and workflow automation.",
+  "job_description_text": "Backend Engineer role focused on backend systems and platform APIs.\nRequired Skills: Python, FastAPI, Docker, PostgreSQL, REST APIs\nPreferred: CI/CD, Kubernetes\nResponsibilities:\nBuild APIs, improve backend reliability, and own service performance.\nQualifications:\n3+ years backend engineering experience.",
+  "job_title": "Backend Engineer",
+  "company_name": "Acme"
+}
